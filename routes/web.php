@@ -24,7 +24,7 @@ Route::get('activite', [ActiviteController::class, 'index']);
 
 Route::fallback(function () {
     return view('error');
-    });
+});
     
     
 Route::resource('enfant', EnfantController::class);

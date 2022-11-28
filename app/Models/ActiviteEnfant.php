@@ -13,4 +13,6 @@ class ActiviteEnfant extends Model
         'enfant_id',
         'activite_id',
     ];
+
+    protected $table='activite_enfant'; 
 }
