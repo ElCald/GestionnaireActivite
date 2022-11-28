@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('activite_enfants')->delete(); // Pour vider la table ; uniquement en dev.
+        DB::table('activite_enfant')->delete(); // Pour vider la table ; uniquement en dev.
         DB::table('activites')->delete(); // Pour vider la table ; uniquement en dev.
         DB::table('enfants')->delete(); // Pour vider la table ; uniquement en dev.
         DB::table('users')->delete(); // Pour vider la table ; uniquement en dev.
