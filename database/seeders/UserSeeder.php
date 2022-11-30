@@ -26,6 +26,15 @@ class UserSeeder extends Seeder
             'admin' => true,
         ]);
 
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@admin',
+            'email_verified_at' => now(),
+            'password' => bcrypt('admin'), // password
+            'remember_token' => '',
+            'admin' => true,
+        ]);
+
         //Compte utilisateur
         User::create([
             'name' => 'Beta tester',
