@@ -1,5 +1,5 @@
 ### Problemes
-- [ Probleme creation d'activité ] 
+- [ ] Probleme creation d'activité 
 
 ### Ajout futur
 
