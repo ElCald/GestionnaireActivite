@@ -10,6 +10,12 @@ use App\Models\Activite;
 
 class EnfantController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -23,9 +29,6 @@ class EnfantController extends Controller
       
     }
 
-    public function __construct() {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -72,6 +75,7 @@ class EnfantController extends Controller
      */
     public function show($id)
     {
+        
         return view('enfant.show',['enfants' => Enfant::findOrFail($id)/*, 'activite' => Activite::findOrFail($id)*/]);
 
     }

@@ -26,7 +26,8 @@ class StoreGestionnaireReqest extends FormRequest
         return [
             'nom' => ['required', 'max:100'],
             'prenom' => ['required', 'max:100'],
-            'date' => ['required', 'max:10']
+            'date' => ['required', 'max:10'],
+            'description' => ['required', 'max:500'],
         ];
     }//fin rules
 
@@ -37,7 +38,8 @@ class StoreGestionnaireReqest extends FormRequest
             'nom.max' => 'Le nom ne doit pas contenir plus de 100 caractères',
             'prenom.required' => 'Il faut spécifier un prénom',
             'prenom.max' => 'Le prénom ne doit pas contenir plus de 100 caractères',
-            'date.required' => 'Il faut spécifier une date'
+            'date.required' => 'Il faut spécifier une date',
+            'description.required' => 'Il faut spécifier une description',
             ];
     }//fin messages
 

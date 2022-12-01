@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <title>@yield('titre')</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -23,9 +24,9 @@
     </div>
     <div class="navbar-menu is-active" id="navMenu">
       <div class="navbar-start">
-        <a href="/" class="navbar-item">Connexion</a>
-        <a href="/register" class="navbar-item">Inscription</a>
-        <a href="/" class="navbar-item">Accueil</a>
+        <!--<a href="/" class="navbar-item">Connexion</a>
+        <a href="/register" class="navbar-item">Inscription</a>-->
+        <a href="{{url('/')}}" class="navbar-item">Accueil</a>
       </div>
       @yield('navbar')
     </div>

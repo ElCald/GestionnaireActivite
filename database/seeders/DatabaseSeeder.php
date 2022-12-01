@@ -15,12 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('activite_horaire')->delete(); // Pour vider la table ; uniquement en dev.
         DB::table('activite_enfant')->delete(); // Pour vider la table ; uniquement en dev.
+        DB::table('horaires')->delete(); // Pour vider la table ; uniquement en dev.
         DB::table('activites')->delete(); // Pour vider la table ; uniquement en dev.
         DB::table('enfants')->delete(); // Pour vider la table ; uniquement en dev.
         DB::table('users')->delete(); // Pour vider la table ; uniquement en dev.
 
-        $this->call([UserSeeder::class, ActiviteSeeder::class, EnfantSeeder::class]);
+        $this->call([HoraireSeeder::class, UserSeeder::class, ActiviteSeeder::class, EnfantSeeder::class]);
     }
 
 }

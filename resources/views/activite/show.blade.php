@@ -5,26 +5,18 @@
     
     <div class="col-lg-10">
         <strong>{{$activites->nom}}</strong>
-        <p>{{$activites->description}}</p><br>
+        <p>{{$activites->description}}</p>
     </div>
 
-    
-    {{$activites->content}}<br/>
-    <em>par {{$activites->horaire->jour}}</em><br/>
     @foreach($activites->horaire as $horaire)
         @if($loop->first)
-            <b>Horaires</b> : 
+            <b>Horaires</b> : <br/>
         @endif
 
         {{$horaire->jour}}
-        {{$horaire->heureDebut}}
-        {{$horaire->heureFin}}
-
-        @if(!$loop->last)
-            ;
-        @else
-            <br/>
-        @endif
+        {{$horaire->heureDebut}} |
+        {{$horaire->heureFin}}<br/>
+        
     @endforeach
 
     <a href="{{url('activite/')}}">Retour à la liste</a>

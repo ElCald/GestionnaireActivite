@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ActiviteController extends Controller
 {
+
+    
+    
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +23,7 @@ class ActiviteController extends Controller
         return view('activite.list',['activitesList' => $activitesList]);
     }
 
-    public function __construct() {
-        $this->middleware('auth');
-    }
+  
 
     /**
      * Show the form for creating a new resource.
@@ -31,7 +32,9 @@ class ActiviteController extends Controller
      */
     public function create()
     {
-        if(Auth::id()==1)
+        if(!Auth::check())
+            return redirect('login');
+        if(Auth::user()->admin == true)
             return view('activite.create');
     }
 
@@ -43,7 +46,9 @@ class ActiviteController extends Controller
      */
     public function store(StoreGestionnaireReqest $request)
     {
-        if(Auth::id()==1){
+        if(!Auth::check())
+            return redirect('login');
+        if(Auth::user()->admin == true){
             $request->validated();
 
             $activite = activite::create($request->input());
@@ -71,7 +76,9 @@ class ActiviteController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::id()==1)
+        if(!Auth::check())
+            return redirect('login');
+        if(Auth::user()->admin == true)
             return view('activite.edit',['activites' => activite::findOrFail($id)]);
     }
 
@@ -84,7 +91,9 @@ class ActiviteController extends Controller
      */
     public function update(StoreGestionnaireReqest $request, activite $activite)
     {
-        if(Auth::id()==1){
+        if(!Auth::check())
+            return redirect('login');
+        if(Auth::user()->admin == true){
             $request->validated();
             $activite->update($request->input());
             return redirect()->route('activite.show', ['activite' => $activite]);
@@ -99,7 +108,9 @@ class ActiviteController extends Controller
      */
     public function destroy($id)
     {
-        if(Auth::id()==1){
+        if(!Auth::check())
+            return redirect('login');
+        if(Auth::user()->admin == true){
             $activite = activite::findOrFail($id);
             $activite->delete();
             return redirect()->route('activite.index');

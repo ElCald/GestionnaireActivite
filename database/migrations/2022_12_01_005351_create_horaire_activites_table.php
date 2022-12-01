@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('activite_enfant', function (Blueprint $table) {
+        Schema::create('activite_horaire', function (Blueprint $table) {
             $table->unsignedBigInteger('activite_id');
             $table->foreign('activite_id')->references('id')->on('activites')->onDelete('cascade');
-            $table->unsignedBigInteger('enfant_id');
-            $table->foreign('enfant_id')->references('id')->on('enfants')->onDelete('cascade');
+            $table->unsignedBigInteger('horaire_id');
+            $table->foreign('horaire_id')->references('id')->on('horaires')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activite_enfant');
+        Schema::dropIfExists('activite_horaire');
     }
 };

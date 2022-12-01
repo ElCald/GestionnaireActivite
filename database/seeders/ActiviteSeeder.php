@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Activite;
 use App\Models\ActiviteHoraires;
+use App\Models\HoraireActivite;
 
 class ActiviteSeeder extends Seeder
 {
@@ -32,6 +33,19 @@ class ActiviteSeeder extends Seeder
             'nom' => 'Aqua-Poney',
             'description' => 'Poney non fournis',
         ]);
+
+        $horaires = DB::table('horaires')->pluck('id');
+        $activites = DB::table('activites')->pluck('id');
+        $faker = \Faker\Factory::create();
+        
+        foreach($activites as $idActivites){
+            for($i=0; $i<2; $i++){
+                HoraireActivite::create([
+                    'activite_id' => $idActivites,
+                    'horaire_id' => $faker->randomElement($horaires)
+                ]);
+            }
+        }//fin foreach
 
 
         /*$activite = DB::table('activites')->pluck('id');

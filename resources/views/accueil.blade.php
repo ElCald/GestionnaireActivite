@@ -4,12 +4,14 @@
 @section('navbar')
 <div class="navbar-end">
     <div class="navbar-item has-dropdown is-hoverable">
-
+        @auth
         @if(Auth::user()->admin==true)
         <div class="navbar-link">Mon Compte Admin</div>
+        @endauth
         @else
         <div class="navbar-link">Mon Compte</div>
         @endif
+        
 
         <div class="navbar-dropdown">
 
@@ -31,22 +33,24 @@
                     </a>
                     @endauth
 
+                    @auth
                     <!-- Ajouter activite enfant pour ADMIN -->
                     @if(Auth::user()->admin==true)
                     <!-- Ajouter activite pour ADMIN -->
                     <button class="button is-white" type="submit">
                         <a href="{{route('activite.create')}}" class="has-text-black">
-                            Ajouter un activite
+                            Ajouter une activitée
                         </a>
                     </button>
-
-                    <!-- Ajouter efnant pour ADMIN -->
+                    @endif
+                    <!-- Ajouter enfant pour ADMIN -->
                     <button class="button is-white" type="submit">
                         <a href="{{route('enfant.create')}}" class="has-text-black">
                             Ajouter un enfant
                         </a>
                     </button>
-                    @endif
+                    @endauth
+                    
                 </span>
             </div>
         </div>
@@ -56,7 +60,7 @@
 <!-- FIN NAVBAR MON PROFIL -->
 
 @section('titre')
-ACCUEIL
+Plus Ultra - Playing arena club
 @endsection
 
 @section('content')
@@ -82,7 +86,7 @@ ACCUEIL
         </div>
     </div>
 </div>
-
+@auth
 <!-- CARTE LISTE ENFANTS -->
 <div class='mt-6 mb-6 container has-text-centered'>
     <div class='columns is-mobile is-centered'>
@@ -105,6 +109,7 @@ ACCUEIL
         </div>
     </div>
 </div>
+@endauth
 @endsection
 
 
