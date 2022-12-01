@@ -82,7 +82,18 @@ LISTE DES ACTIVITÉS
                         <p class='is-succes'>
                             {{$activites->description}}
                         </p>
+                        
+                        @auth
+                        <!-- Admin uniquement -->
+                        @if(Auth::user()->admin==true)
+                            <button type="submit" formaction="{{route('activite.destroy', $activites->id)}}" form="deleteForm" class="button is-link">Supp</button>
+                            <a href="{{route('activite.edit',$activites->id)}}" class="button is-link">Edit</a>
+                        @endif
+                        @endauth
                     </div>
+                    
+
+
                     {{--<div class="card-content">
                         <p class='is-succes'>
                             @foreach($activites->horaire as $horaire)

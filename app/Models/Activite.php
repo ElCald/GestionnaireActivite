@@ -12,6 +12,7 @@ class Activite extends Model
     protected $fillable = [
         'nom',
         'description',
+        'taille',
     ]; 
 
     public function enfant(){

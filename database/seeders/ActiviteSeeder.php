@@ -22,16 +22,19 @@ class ActiviteSeeder extends Seeder
         Activite::create([
             'nom' => 'Natation',
             'description' => 'Piscine',
+            'taille' => 12,
         ]);
 
         Activite::create([
             'nom' => 'Garderie',
             'description' => 'Garde d\'enfant',
+            'taille' => 24,
         ]);
 
         Activite::create([
             'nom' => 'Aqua-Poney',
             'description' => 'Poney non fournis',
+            'taille' => 5,
         ]);
 
         $horaires = DB::table('horaires')->pluck('id');

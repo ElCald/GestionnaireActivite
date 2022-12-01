@@ -10,24 +10,26 @@
         <em>Tuteur : {{$enfants->user->name}}</em>
     </div>
 
-    <div>
-        <form action=none>
+    <ul class="list-group">
+        @foreach($enfants->activite as $activites)
+            <li class="list-group-item d-flex align-items-center">
+                
+                <div class="col-lg-10">
+        
+                    <p>{{$activites->nom}}</p>
+                    <p>{{$activites->description}} </p>
+        
+                </div>
+                
+            </li>
+        @endforeach
+            </ul> 
 
-            <ul class="list-group">
-                @foreach($enfants->activite as $activites)
-                    <li class="list-group-item d-flex align-items-center">
-                        
-                        <div class="col-lg-10">
-                
-                            <label for="act1">{{$activites->nom}}</label>
-                            <input type="checkbox" id="act1"/>
-                            <p>{{$activites->description}} </p>
-                
-                        </div>
-                        
-                    </li>
-                @endforeach
-                    </ul> 
+    <div>
+
+        <form action={{url('enfant', $enfants->id)}} method='POST'>
+
+            
 
             <button type="submit">Valider</button>
         </form>

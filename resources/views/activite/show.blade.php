@@ -6,6 +6,7 @@
     <div class="col-lg-10">
         <strong>{{$activites->nom}}</strong>
         <p>{{$activites->description}}</p>
+        <p>Nombre places : {{$activites->taille}}</p>
     </div>
 
     @foreach($activites->horaire as $horaire)

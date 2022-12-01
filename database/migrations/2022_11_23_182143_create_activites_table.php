@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom', 100);
             $table->text('description');
+            $table->integer('taille');
             $table->timestamps();
         });
     }
