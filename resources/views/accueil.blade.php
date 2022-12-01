@@ -39,7 +39,7 @@
                     <!-- Ajouter activite pour ADMIN -->
                     <button class="button is-white" type="submit">
                         <a href="{{route('activite.create')}}" class="has-text-black">
-                            Ajouter une activitée
+                            Ajouter une activité
                         </a>
                     </button>
                     @endif

@@ -1,5 +1,5 @@
 @extends('template')
-@section('titre') Enfant {{$enfants->nom}} @endsection
+@section('titre') Enfant {{$enfants->prenom}} @endsection
 @section('contenu')
 
     
@@ -11,6 +11,7 @@
     </div>
 
     <ul class="list-group">
+        <em> Listes des activités de {{$enfants->prenom}}</em>
         @foreach($enfants->activite as $activites)
             <li class="list-group-item d-flex align-items-center">
                 
@@ -18,6 +19,10 @@
         
                     <p>{{$activites->nom}}</p>
                     <p>{{$activites->description}} </p>
+
+                    @foreach($activites->horaire as $horaires)
+                        <p>{{$horaires->jour}} : {{$horaires->heureDebut}} | {{$horaires->heureFin}}</p>
+                    @endforeach
         
                 </div>
                 
@@ -27,7 +32,13 @@
 
     <div>
 
-        <form action={{url('enfant', $enfants->id)}} method='POST'>
+        <form action={{url('enfant', $enfants->id)}} method='get'>
+            <ul class="list-group">
+                @foreach($activite as $activite)
+                    <p>{{$activite->nom}}</p>
+                    
+                @endforeach
+            </ul>
 
             
 

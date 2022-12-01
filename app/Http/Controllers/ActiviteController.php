@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Activite;
-use App\Http\Requests\StoreGestionnaireReqest;
+use App\Http\Requests\StoreGestionnaireRequestActivite;
 use Illuminate\Support\Facades\Auth;
 
 class ActiviteController extends Controller
@@ -44,7 +44,7 @@ class ActiviteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGestionnaireReqest $request)
+    public function store(StoreGestionnaireRequestActivite $request)
     {
         if(!Auth::check())
             return redirect('login');
@@ -89,7 +89,7 @@ class ActiviteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreGestionnaireReqest $request, activite $activite)
+    public function update(StoreGestionnaireRequestActivite $request, activite $activite)
     {
         if(!Auth::check())
             return redirect('login');

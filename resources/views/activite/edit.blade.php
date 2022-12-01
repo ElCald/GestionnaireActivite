@@ -1,5 +1,5 @@
 @extends('template')
-@section('titre') Modifier {{$activites->nom, $activites->prenom}} @endsection
+@section('titre') Modifier {{$activites->nom}} @endsection
 @section('contenu')
 
 @if($errors->any())

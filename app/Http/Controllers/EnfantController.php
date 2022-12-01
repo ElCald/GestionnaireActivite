@@ -24,6 +24,7 @@ class EnfantController extends Controller
     public function index()
     {
         $enfantsList = Enfant::orderBy('id')->get();
+        
 
         return view('enfant.list',['enfantsList' => $enfantsList]);
       
@@ -50,6 +51,7 @@ class EnfantController extends Controller
     {
         $request->validated();
 
+
         if(Auth::user()->admin!=true){
             $enfant = Enfant::make($request->input());
             $enfant->user()->associate(Auth::id());
@@ -59,6 +61,7 @@ class EnfantController extends Controller
             $enfant = Enfant::make($request->input());
             $enfant->user()->associate(Auth::id());
             $enfant->save(); 
+            
         }
 
         
@@ -75,8 +78,9 @@ class EnfantController extends Controller
      */
     public function show($id)
     {
-        
-        return view('enfant.show',['enfants' => Enfant::findOrFail($id)/*, 'activite' => Activite::findOrFail($id)*/]);
+        $activitesList = Activite::orderBy('id')->get();
+        //return view('enfant.show',['enfants' => Enfant::findOrFail($id)]);
+        return view('enfant.show',['enfants' => Enfant::findOrFail($id)],['activite' => $activitesList]);
 
     }
 
