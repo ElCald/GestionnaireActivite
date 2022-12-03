@@ -72,7 +72,7 @@
           Ce site créer par la commune vous permet d'inscrire
           votre enfant à différentes activités.
           ATTENTION, vous devez faire
-          l'inscription à l'activité 2 semaines
+          l'inscription à l'activité 2 jours
           avant le début de celle-ci.
         </p>
 

@@ -109,7 +109,15 @@ class ActiviteController extends Controller
         if(Auth::user()->admin == true){
             $request->validated();
             $activite->update($request->input());
-            $horaire->update($request->input());
+            //$horaire->update($request->input());
+
+            $horaire = Horaire::create($request->input());
+            $horaire->save();
+
+            HoraireActivite::create([
+                'horaire_id' => $horaire->id,
+                'activite_id' => $activite->id,
+            ]);
 
             return redirect()->route('activite.show', ['activite' => $activite]);
         }

@@ -17,21 +17,21 @@
     <div class="mb-3 row">
         <label for="nom" class="has-text-link">Nom</label>
         <div class="col-sm-10">
-            <input type="text" class="input is-link form-control @error('nom') is-invalid @enderror" name="nom" id="nom" placeholder="Saisir le nom" value="{{ old('nom') }}"/>                            
+            <input type="text" class="input is-link form-control @error('nom') is-invalid @enderror" name="nom" id="nom" placeholder="Saisir le nom" value="{{$activites->nom}}"/>                            
         </div>
     </div>
 
     <div class="mb-3 row">
         <label for="description" class="has-text-link">Description</label>
         <div class="col-sm-10">
-            <input type="text" class="input is-link form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Saisir la description" value="{{ old('description') }}"/>                                                   
+            <input type="text" class="input is-link form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Saisir la description" value="{{$activites->description}}"/>                                                   
         </div>
     </div>
 
     <div class="mb-3 row">
         <label for="taille" class="has-text-link">Nombre de place</label>
         <div class="col-sm-10">
-            <input type="number" class="input is-link form-control" id="taille" name="taille" value="0"/>                       
+            <input type="number" class="input is-link form-control" id="taille" name="taille" value="{{$activites->taille}}"/>                       
         </div>
     </div>
 

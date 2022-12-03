@@ -68,14 +68,18 @@ class EnfantController extends Controller
             $enfant->save(); 
         }
         
+
+        $myCheckboxes = $request->input('activiteHoraire');
         
         
-        foreach($_POST('activiteHoraire') as $activiteH){
+        foreach($myCheckboxes as $activiteH){
             
             ActiviteEnfant::create([
                 'enfant_id' => $enfant->id,
                 'activite_id' => $activiteH,
             ]);
+
+            
         
         }
         

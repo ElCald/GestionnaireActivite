@@ -33,6 +33,7 @@
                             <span>
                                 {{$horaire->jour}}
                                 {{$horaire->journee}}<br />
+                                <button type="submit" formaction="{{route('horaire.destroy', $horaire->id)}}" form="deleteForm" class="button is-link">Supp</button>
                             </span>
                         </p>
 

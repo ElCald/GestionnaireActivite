@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\EnfantController;
 use App\Http\Controllers\ActiviteController;
+use App\Http\Controllers\HoraireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::fallback(function () {
     
 Route::resource('enfant', EnfantController::class);
 Route::resource('activite', ActiviteController::class);
+Route::resource('horaire', HoraireController::class);
+
 
 
 Route::middleware([

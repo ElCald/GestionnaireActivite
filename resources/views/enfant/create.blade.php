@@ -74,12 +74,8 @@ AJOUTER UN ENFANT
                         <div class="mb-3 row">
                             @foreach($activite as $activite)
 
-                                <strong>{{$activite->nom}}</strong><br/>
-                                
-                                @foreach($activite->horaire as $horaire)
-                                    <label for="activiteHoraire" class="has-text-link"><p>{{$horaire->jour}} : {{$horaire->heureDebut}} | {{$horaire->heureFin}}</p></label>
-                                    <input type="checkbox" id="activiteHoraire" name="activiteHoraire" value="{{$activite->id}}" /><br/>
-                                @endforeach
+                                <label for="activiteHoraire" class="has-text-link"><strong>{{$activite->nom}}</strong></label>
+                                <input type="checkbox" id="activiteHoraire" name="activiteHoraire[]" value="{{$activite->id}}" /><br/>   
                                 
                             @endforeach
                         </div>
