@@ -30,6 +30,7 @@ Route::fallback(function () {
 Route::resource('enfant', EnfantController::class);
 Route::resource('activite', ActiviteController::class);
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

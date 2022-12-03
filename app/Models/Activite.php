@@ -22,4 +22,6 @@ class Activite extends Model
     public function horaire() {
         return $this->belongsToMany(Horaire::class);
     }
+
+    protected $table='activites'; 
 }

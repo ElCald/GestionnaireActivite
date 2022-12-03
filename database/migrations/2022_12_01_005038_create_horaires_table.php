@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('horaires', function (Blueprint $table) {
             $table->id();
             $table->string('jour', 100);
-            $table->time('heureDebut');
-            $table->time('heureFin');
+            $table->string('journee');
             $table->timestamps();
         });
     }

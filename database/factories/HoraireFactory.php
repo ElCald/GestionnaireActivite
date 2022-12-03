@@ -16,11 +16,11 @@ class HoraireFactory extends Factory
      */
     public function definition()
     {
-               
+        $tabJour = array("Lunid", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+        $tabJournee = array("matin", "apres-midi", "matin / apres-midi");
         return [
-            'jour' => $this->faker->dayOfWeek,
-            'heureDebut' => $this->faker->time($format = 'H:i:s'),
-            'heureFin' => $this->faker->time($format = 'H:i:s'),
+            'jour' => $tabJour[rand(0,6)],
+            'journee' => $tabJournee[rand(0,2)],
         ];
         
     }

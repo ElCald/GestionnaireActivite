@@ -4,14 +4,9 @@
 @section('navbar')
 <div class="navbar-end">
     <div class="navbar-item has-dropdown is-hoverable">
-        @auth
-        @if(Auth::user()->admin==true)
-        <div class="navbar-link">Mon Compte Admin</div>
-        @endauth
-        @else
+
         <div class="navbar-link">Mon Compte</div>
-        @endif
-        
+    
 
         <div class="navbar-dropdown">
 

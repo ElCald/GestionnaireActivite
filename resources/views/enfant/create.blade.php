@@ -36,6 +36,7 @@ AJOUTER UN ENFANT
         <div class='column is-5'>
             <div class="card">
                 <div class="card-content card-form">
+                    
                     <form action="{{url('enfant')}}" method="post">@csrf
                         
                         <div class="mb-3 row">
@@ -58,19 +59,44 @@ AJOUTER UN ENFANT
                                 <input value="{{ old('date') }}" type="text" class="input is-link form-control @error('date') is-invalid @enderror" name="date" id="date" placeholder="Saisir la date de naissance"/>                            
                             </div>
                         </div>
+                        
+                        @if(Auth::user()->admin==true)
+                        <div class="mb-3 row">
+                            @foreach($user as $users)
+                                <div class="col-sm-10">
+                                    <input type="radio" id="user" name="user" value="{{$users->id}}"/>
+                                    <label for="user" class="has-text-link">{{$users->name}}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                        @endif
+
+                        <div class="mb-3 row">
+                            @foreach($activite as $activite)
+
+                                <strong>{{$activite->nom}}</strong><br/>
+                                
+                                @foreach($activite->horaire as $horaire)
+                                    <label for="activiteHoraire" class="has-text-link"><p>{{$horaire->jour}} : {{$horaire->heureDebut}} | {{$horaire->heureFin}}</p></label>
+                                    <input type="checkbox" id="activiteHoraire" name="activiteHoraire" value="{{$activite->id}}" /><br/>
+                                @endforeach
+                                
+                            @endforeach
+                        </div>
+                        
 
 
                         <div class="mb-3">
                             <div class="offset-sm-2 col-sm-10">
                                 <button class="button is-link" type="submit">Ajouter</button>
-                            
+                            </div>
+                        </div>
 
                     </form>
                     <button class="button has-background-whit button-annuler">
                         <a href="{{url('enfant')}}" class="has-text-link">Annuler</a>
                     </button>
-                            </div>
-                        </div>
+      
                     
                 </div>
             </div>

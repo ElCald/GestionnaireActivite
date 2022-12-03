@@ -95,7 +95,7 @@ LISTE DES ENFANTS
                     <!-- Ajouter activite pour ADMIN -->
                     <button class="button is-white" type="submit">
                         <a href="{{route('activite.create')}}" class="has-text-black">
-                            Ajouter un activite
+                            Ajouter une activité
                         </a>
                     </button>
 

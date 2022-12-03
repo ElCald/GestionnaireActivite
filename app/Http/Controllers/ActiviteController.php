@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Activite;
+use App\Models\HoraireActivite;
 use App\Http\Requests\StoreGestionnaireRequestActivite;
+use App\Models\Horaire;
 use Illuminate\Support\Facades\Auth;
 
 class ActiviteController extends Controller
@@ -48,13 +50,24 @@ class ActiviteController extends Controller
     {
         if(!Auth::check())
             return redirect('login');
-        if(Auth::user()->admin == true){
-            $request->validated();
+        if(Auth::user()->admin ==true){
 
-            $activite = activite::create($request->input());
+            $request->validated();
+            $activite = Activite::create($request->input());
             $activite->save();
-            return redirect()->route('activite.show', ['activite' => $activite]);
+
+            $horaire = Horaire::create($request->input());
+            $horaire->save();
+        
+            HoraireActivite::create([
+                'horaire_id' => $horaire->id,
+                'activite_id' => $activite->id,
+            ]);
+
         }
+    
+        
+        return redirect()->route('activite.show', ['activite' => $activite]);
     }
 
     /**
@@ -89,13 +102,15 @@ class ActiviteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreGestionnaireRequestActivite $request, activite $activite)
+    public function update(StoreGestionnaireRequestActivite $request, activite $activite, horaire $horaire)
     {
         if(!Auth::check())
             return redirect('login');
         if(Auth::user()->admin == true){
             $request->validated();
             $activite->update($request->input());
+            $horaire->update($request->input());
+
             return redirect()->route('activite.show', ['activite' => $activite]);
         }
     }

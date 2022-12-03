@@ -42,7 +42,7 @@ class ActiviteSeeder extends Seeder
         $faker = \Faker\Factory::create();
         
         foreach($activites as $idActivites){
-            for($i=0; $i<2; $i++){
+            for($i=0; $i<rand(1,3); $i++){
                 HoraireActivite::create([
                     'activite_id' => $idActivites,
                     'horaire_id' => $faker->randomElement($horaires)

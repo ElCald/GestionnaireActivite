@@ -7,6 +7,8 @@ use App\Models\Enfant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Activite;
+use App\Models\ActiviteEnfant;
+use App\Models\User;
 
 class EnfantController extends Controller
 {
@@ -38,7 +40,10 @@ class EnfantController extends Controller
      */
     public function create()
     {
-        return view('enfant.create');
+        $usersList = User::orderBy('id')->get();
+        $activitesList = Activite::orderBy('id')->get();
+        
+        return view('enfant.create',['user' => $usersList],['activite' => $activitesList]);
     }
 
     /**
@@ -59,11 +64,21 @@ class EnfantController extends Controller
         }
         else{
             $enfant = Enfant::make($request->input());
-            $enfant->user()->associate(Auth::id());
+            $enfant->user()->associate($request->get('user'));
             $enfant->save(); 
-            
         }
-
+        
+        
+        
+        foreach($_POST('activiteHoraire') as $activiteH){
+            
+            ActiviteEnfant::create([
+                'enfant_id' => $enfant->id,
+                'activite_id' => $activiteH,
+            ]);
+        
+        }
+        
         
 
         return redirect()->route('enfant.show', ['enfant' => $enfant]);
@@ -79,7 +94,7 @@ class EnfantController extends Controller
     public function show($id)
     {
         $activitesList = Activite::orderBy('id')->get();
-        //return view('enfant.show',['enfants' => Enfant::findOrFail($id)]);
+    
         return view('enfant.show',['enfants' => Enfant::findOrFail($id)],['activite' => $activitesList]);
 
     }
@@ -117,8 +132,10 @@ class EnfantController extends Controller
      */
     public function destroy($id)
     {
+
         $enfant = Enfant::findOrFail($id);
         $enfant->delete();
+        
         return redirect()->route('enfant.index');
     }
 }

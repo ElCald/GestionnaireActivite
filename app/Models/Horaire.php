@@ -11,8 +11,7 @@ class Horaire extends Model
 
     protected $fillable = [
         'jour',
-        'heureDebut',
-        'heureFin',
+        'journee',
     ]; 
 
     public function activite(){

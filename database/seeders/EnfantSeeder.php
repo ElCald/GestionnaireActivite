@@ -26,12 +26,13 @@ class EnfantSeeder extends Seeder
         $faker = \Faker\Factory::create();
         
         foreach($enfants as $idEnfants){
-            for($i=0; $i<2; $i++){
+            for($i=0; $i<rand(1,3); $i++){
                 ActiviteEnfant::create([
                     'enfant_id' => $idEnfants,
                     'activite_id' => $faker->randomElement($activites)
                 ]);
             }
+            
         }//fin foreach
     }
 }
