@@ -33,7 +33,12 @@
                             <span>
                                 {{$horaire->jour}}
                                 {{$horaire->journee}}<br />
+
+                                @auth
+                                @if(Auth::user()->admin==true)
                                 <button type="submit" formaction="{{route('horaire.destroy', $horaire->id)}}" form="deleteForm" class="button is-link">Supp</button>
+                                @endif
+                                @endauth
                             </span>
                         </p>
 

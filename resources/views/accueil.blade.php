@@ -1,58 +1,5 @@
 @extends('layouts/templateBULMA')
 
-<!-- DEBUT NAVBAR MON PROFIL > Deconnexion > AJOUTER UNE ACTIVITE-->
-@section('navbar')
-<div class="navbar-end">
-    <div class="navbar-item has-dropdown is-hoverable">
-
-        <div class="navbar-link">Mon Compte</div>
-    
-
-        <div class="navbar-dropdown">
-
-            <form id="formLogout" action="{{url('/logout')}}" method="POST">@csrf</form>
-
-            <div>
-                <span class="is-flex is-justify-content-center is-flex-wrap-wrap">
-                    @auth
-                    <button type="submit" form="formLogout" class="button is-white">
-                        Déconnexion
-                    </button>
-
-                    @else
-                    <a href="{{ url('/login') }}" class="button is-white">
-                        Connexion
-                    </a>
-                    <a href="{{ url('/register') }}" class="button is-white">
-                        Création d'un compte
-                    </a>
-                    @endauth
-
-                    @auth
-                    <!-- Ajouter activite enfant pour ADMIN -->
-                    @if(Auth::user()->admin==true)
-                    <!-- Ajouter activite pour ADMIN -->
-                    <button class="button is-white" type="submit">
-                        <a href="{{route('activite.create')}}" class="has-text-black">
-                            Ajouter une activité
-                        </a>
-                    </button>
-                    @endif
-                    <!-- Ajouter enfant pour ADMIN -->
-                    <button class="button is-white" type="submit">
-                        <a href="{{route('enfant.create')}}" class="has-text-black">
-                            Ajouter un enfant
-                        </a>
-                    </button>
-                    @endauth
-                    
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
-<!-- FIN NAVBAR MON PROFIL -->
 
 @section('titre')
 Plus Ultra - Playing arena club
