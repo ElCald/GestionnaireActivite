@@ -10,7 +10,5 @@ class AccueilController extends Controller
         return view('accueil');
     }
 
-    // public function __construct() {
-    //     $this->middleware('auth');
-    // }
+    
 }

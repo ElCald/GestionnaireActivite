@@ -36,7 +36,7 @@
 
                                 @auth
                                 @if(Auth::user()->admin==true)
-                                <button type="submit" formaction="{{route('horaire.destroy', $horaire->id)}}" form="deleteForm" class="button is-link">Supp</button>
+                                    <button type="submit" formaction="{{route('horaire.destroy', $horaire->id)}}" form="deleteForm" class="button is-link" disabled>Supp</button>
                                 @endif
                                 @endauth
                             </span>

@@ -51,16 +51,5 @@ class ActiviteSeeder extends Seeder
         }//fin foreach
 
 
-        /*$activite = DB::table('activites')->pluck('id');
-        $horaire = DB::table('horaires')->pluck('id');
-        $faker = \Faker\Factory::create();
-        foreach($activite as $idActivite) {
-            for($i = 0; $i < 2; $i++) {
-                ActiviteHoraires::create([
-                    'activite_id' => $idActivite,
-                    'horaire_id' => $faker->randomElement($horaire)
-                ]);
-            }
-        }*/
     }
 }

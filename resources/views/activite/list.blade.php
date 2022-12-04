@@ -35,28 +35,6 @@ LISTE DES ACTIVITÉS
                     </div>
                     
 
-
-                    {{--<div class="card-content">
-                        <p class='is-succes'>
-                            @foreach($activites->horaire as $horaire)
-                                @if($loop->first)
-                                    <b>Horaires</b> : <br/>
-                                @endif
-
-                                {{$horaire->jour}}
-                                {{$horaire->heureDebut}} |
-                                {{$horaire->heureFin}}<br/>
-                                
-                            @endforeach
-                        </p>
-                    </div>--}}
-                    <div>
-                        <footer class="card-footer is-flex is-justify-content-center has-background-link">
-                            {{--<div class="mt-4 mb-2 buttons">
-                                <button class="button is-white has-text-link">S'inscrire</button>
-                            </div>--}}
-                        </footer>
-                    </div>
                 </div>
                 </a>
             </div>
