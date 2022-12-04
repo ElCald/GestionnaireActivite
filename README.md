@@ -1,9 +1,5 @@
-### Problemes
-- Probleme creation d'activité 
+### Gestionnaire d'activités pour enfant
 
-### Ajout futur
+Projet dans le cadre du module info0303 :  PHP/Laravel.
 
-- views : enfant.show, activite.show, enfant.edit, activite.edit<br/>
-- activite.create : pouvoir ajouter une date qui ce lie à l'activite
-- enfant.show : associer un enfant à une activité 
-    - Contrainte : taille max activité
+UFR-SEN, Reims.
